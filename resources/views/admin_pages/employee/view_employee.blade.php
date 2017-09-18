@@ -53,7 +53,7 @@
                     <div class="col-lg-12">
                         <section class="panel">
                             <header class="panel-heading">
-                                Employee
+                                Dynamic Table
                             </header>
                             <div class="panel-body">
                                 <div class="adv-table">
@@ -88,9 +88,12 @@
                                                 <td> {{ $res->email }}</td>
                                                 <td> {{ $res->employee_id }}</td>
                                                 <td>
-                                                    <a href="/employee/view/{{ $res->emp_id }}" class="btn btn-success btn-xs"><i class="fa fa-eye"></i></a>
-                                                    <a href="/employee/edit/{{ $res->emp_id }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-                                                    <a href="/employee/delete/{{ $res->emp_id }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></a>
+                                                    <a href="/employee/view/{{ $res->emp_id }}"
+                                                       class="btn btn-success btn-xs"><i class="fa fa-eye"></i></a>
+                                                    <a href="/employee/edit/{{ $res->emp_id }}"
+                                                       class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                                                    <a href="/employee/delete/{{ $res->emp_id }}"
+                                                       class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></a>
                                                 </td>
 
 
@@ -98,15 +101,14 @@
                                             </tr>
 
                                         @endforeach
-
-                                        </tbody>
-
                                     </table>
                                 </div>
                             </div>
                         </section>
                     </div>
                 </div>
+                <!-- page end-->
+
         @else
 
 
@@ -114,24 +116,6 @@
         <!-- page end-->
         </section>
     </section>
-    <!--main content end-->
-    <!-- js placed at the end of the document so the admin_pages load faster -->
-    <script type="text/javascript" language="javascript" src="/assets/advanced-datatable/media/js/jquery.js"></script>
-    <script type="text/javascript" language="javascript"
-            src="/assets/advanced-datatable/media/js/jquery.dataTables.js"></script>
-    <script type="text/javascript" src="/assets/data-tables/DT_bootstrap.js"></script>
-
-
-
-    <!--script for this page only-->
-
-    <script type="text/javascript" charset="utf-8">
-        $(document).ready(function () {
-            $('#example').dataTable({
-                "aaSorting": [[4, "desc"]]
-            });
-        });
-    </script>
 
 
 @endsection

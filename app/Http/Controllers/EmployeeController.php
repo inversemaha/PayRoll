@@ -22,7 +22,8 @@ class EmployeeController extends Controller
 
     public function addEmployee()
     {
-        return view('admin_pages.employee.add_employee');
+        $department['department'] = DB::table('department_table')->get();
+        return view('admin_pages.employee.add_employee', $department);
     }
 
     public function saveEmployee(Request $request)
@@ -41,6 +42,7 @@ class EmployeeController extends Controller
         $email = $request->input('email');
         $password = $request->input('password');
         $emp_id = $request->input('emp_id');
+        $employee_fingerprint_id = $request->input('employee_fingerprint_id');
         $department = $request->input('department');
         $designation = $request->input('designation_id');
         $date_of_joining = $request->input('date_of_joining');
@@ -69,6 +71,7 @@ class EmployeeController extends Controller
 
         $emp_array = array('employee_name' => $emp_full_name,
             'employee_father_name' => $emp_father_name,
+            'emp_image' =>  $input['imagename'],
             'employee_birthday' => $emp_birthday,
             'gender' => $emp_gender,
             'employee_phone' => $emp_phn,
@@ -80,6 +83,7 @@ class EmployeeController extends Controller
             'email' => $email,
             'password' => $password,
             'employee_id' => $emp_id,
+            'employee_fingerprint_id' => $employee_fingerprint_id,
             'employee_department' => $department,
             'employee_designation' => $designation,
             'employee_date_of_joining' => $date_of_joining,
@@ -92,14 +96,20 @@ class EmployeeController extends Controller
 
         );
 
-        $save_status = DB::table('employee_table')->insert($emp_array);
-        return $emp_array;
+        try {
+            $save_status = DB::table('employee_table')->insert($emp_array);
+        } catch (\Illuminate\Database\QueryException $ex) {
+            $save_status = 0;
+            //dd($ex->getMessage());
+
+        }
+        //return $emp_array;
 
         if ($save_status) {
 
-            return view('admin_pages.employee.add_employee')->with('status', 'Employee addedd sucessfully');
+            return back()->with('success', 'Employee addedd sucessfully');
         } else {
-            return view('admin_pages.employee.add_employee')->with('status', 'There was  a problem.');
+            return back()->with('decline', 'There was  a problem.');
         }
 
     }
@@ -107,11 +117,11 @@ class EmployeeController extends Controller
     public function viewEmployee()
     {
         $result['result'] = DB::table('employee_table')
-            ->join('department_table', 'employee_table.employee_department', '=', 'department_table.department_id')
-            ->join('designation_table', 'designation_table.department_id', '=', 'department_table.department_id')
+            ->leftJoin('department_table', 'employee_table.employee_department', '=', 'department_table.department_id')
+            ->leftJoin('designation_table', 'designation_table.designation_id', '=', 'employee_table.employee_designation')
             ->get();
 
-        //print_r($result);
+        //return ($result);
         return view('admin_pages.employee.view_employee', $result);
     }
 

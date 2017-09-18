@@ -28,7 +28,8 @@
                             <h1>{{ $result->employee_name }}</h1>
                             <p>Session: {{ $result->employee_id }}</p>
                             <a href="#">
-                                <img src="/employee_image/{{ $result->emp_image }}" alt="">
+
+                                <img src="/employe_image/{{ $result->emp_image }}" alt="">
                             </a>
                         </div>
                         <div class="weather-category twt-category custom-divider">
@@ -54,7 +55,7 @@
                         </div>
                         <hr>
                         <footer class="twt-footer">
-                            <a href="/student/edit/{{ $result->emp_id }}" type="button"
+                            <a href="/employee/edit/{{ $result->emp_id }}" type="button"
                                class="btn btn-info center-block"><i class="fa fa-refresh"></i> Update</a>
                         </footer>
                     </section>

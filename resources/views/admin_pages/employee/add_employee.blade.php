@@ -16,9 +16,16 @@
                         </header>
                         <div class="panel-body">
 
-                            @if (session('status'))
+                            @if (session('success'))
                                 <div class="alert alert-success">
-                                    {{ session('status') }}
+
+                                    {{ session('success') }}
+                                </div>
+                            @endif
+                            @if (session('decline'))
+                                <div class="alert alert-danger">
+
+                                    {{ session('decline') }}
                                 </div>
                             @endif
 
@@ -102,7 +109,7 @@
                                             <input id="emp_phn" class="form-control col-md-7 col-xs-12"
                                                    data-validate-length-range="6" data-validate-words="2"
                                                    name="emp_phn"
-                                                   placeholder="" required="required" type="text">
+                                                   placeholder="" required="required" type="number">
                                         </div>
                                     </div>
                                     <div class="item form-group">
@@ -208,27 +215,40 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
+                                        <label for="field-1" class="col-sm-3 control-label">Employee Fingerprint ID</label>
+                                        <div class="col-sm-7">
+                                            <input class="form-control" name="employee_fingerprint_id" type="number">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="field-2" class="col-sm-3 control-label">Department</label>
                                         <div class="col-sm-7">
-                                            <select name="department" class="form-control"
-                                                    onchange="get_designation_val(this.value)" required="">
+                                            @if(isset($department))
 
-                                                <option>
-                                                    Technology
-                                                </option>
-                                                <option value="3">
-                                                    HR
-                                                </option>
-                                            </select>
+                                                @if(count($department)<=0)
+                                                    <a href="/department/department-setup" class="btn btn-info">+ Add
+                                                        Department First To Continue</a>
+                                                @else
+                                                    <select name="department" class="form-control" id="department"
+                                                            required="true">
+                                                        <option>Select A Department First</option>
+                                                        @foreach( $department as $dept)
+                                                            <option value="{{ $dept->department_id}}">
+                                                                {{ $dept->department_name }}
+                                                            </option>
+                                                        @endforeach
+
+                                                    </select>
+                                                @endif
+
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="field-2" class="col-sm-3 control-label">Designation</label>
                                         <div class="col-sm-7">
-                                            <select name="designation" class="form-control">
-                                                <option>Select A Department First</option>
-                                                <option>Back-End Developer</option>
-                                                <option>Font-End Developer</option>
+                                            <select class="form-control" name="designation_id"
+                                                    id="designation">
                                             </select>
                                         </div>
                                     </div>
@@ -236,7 +256,7 @@
                                         <label for="field-2" class="col-sm-3 control-label">Date Of Joining</label>
                                         <div class="col-sm-7">
                                             <input class="form-control datepicker" name="date_of_joining" value=""
-                                                   data-start-view="2" required="" data-format="dd-mm-yyyy" type="text">
+                                                   data-start-view="2" required="" data-format="dd-mm-yyyy" type="date">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -280,8 +300,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-offset-3 col-md-6">
-                                        <button type="submit" class="btn btn-info"
-                                        >
+                                        <button type="submit" class="btn btn-info">
                                             Save Details
                                         </button>
                                     </div>
@@ -293,5 +312,30 @@
             </div>
         </section>
     </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $("#department").change(function () {
+            var v = $('#department').val();
+            console.log(v);
+            var url = '/designation/department-wise-designation/' + v;
+            console.log(url);
+
+            $.get(url, function (data, status) {
+                console.log(data);
+
+                var option = '';
+                option += '<option value="Select one...">' + 'Select one...' + '</option>';
+
+                $.each(data, function (key, value) {
+                    //console( key + ": " + value );
+                    option += '<option value="' + value.designation_id + '">' + value.designation_name + '</option>';
+                });
+                $('#designation').empty().append(option);
+            });
+        });
+
+    </script>
+
 @endsection
 

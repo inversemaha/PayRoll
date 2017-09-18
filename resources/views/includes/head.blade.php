@@ -13,23 +13,16 @@
 <link rel="stylesheet" type="text/css" href="/assets/bootstrap-daterangepicker/daterangepicker-bs3.css" />
 <link rel="stylesheet" type="text/css" href="/assets/bootstrap-datetimepicker/css/datetimepicker.css" />
 <link rel="stylesheet" type="text/css" href="/assets/jquery-multi-select/css/multi-select.css" />
+<link rel="stylesheet" type="text/css" href="/assets/jquery-multi-select/css/multi-select.css" />
 
-<!--bootstrap switcher-->
-<link rel="stylesheet" type="text/css" href="/assets/bootstrap-switch/static/stylesheets/bootstrap-switch.css" />
-
-<!-- switchery-->
-<link rel="stylesheet" type="text/css" href="/assets/switchery/switchery.css" />
-
-<!--select 2-->
-<link rel="stylesheet" type="text/css" href="/assets/select2/css/select2.min.css"/>
-
-<!--right slidebar-->
-<link href="/css/slidebars.css" rel="stylesheet">
-
-<!--  summernote -->
-<link href="/assets/summernote/dist/summernote.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
 <link href="/css/style.css" rel="stylesheet">
 <link href="/css/style-responsive.css" rel="stylesheet" />
+<link href="/assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet" />
 
+<!--data tables-->
+
+<link href="/assets/advanced-datatable/media/css/demo_page.css" rel="stylesheet" />
+<link href="/assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/data-tables/DT_bootstrap.css" />

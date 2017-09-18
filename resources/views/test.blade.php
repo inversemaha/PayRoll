@@ -1,62 +1,51 @@
-<!DOCTYPE html>
-<html lang="en-US">
-<head>
-    <title>Laravel Ajax</title>
+@extends('layouts.master_layout')
+@section('title', 'Working Day Setup')
+@section('content')
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper site-min-height">
+            <!-- page start-->
+            <div class="row">
+                <div class="col-lg-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            Dynamic Table
+                        </header>
+                        <div class="panel-body">
+                            <div class="adv-table">
+                                <table class="display table table-bordered table-striped" id="example">
+                                    <thead>
+                                    <tr>
+                                        <th>Rendering engine</th>
+                                        <th>Browser</th>
+                                        <th>Platform(s)</th>
+                                        <th class="hidden-phone">Engine version</th>
+                                        <th class="hidden-phone">CSS grade</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr class="gradeX">
+                                        <td>Trident</td>
+                                        <td>Internet
+                                            Explorer 4.0
+                                        </td>
+                                        <td>Win 95+</td>
+                                        <td class="center hidden-phone">4</td>
+                                        <td class="center hidden-phone">X</td>
+                                    </tr>
 
-    <!-- Load Bootstrap CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-<div class="container-narrow">
-    <div>
-
-        <!-- Table-to-load-the-data Part -->
-        <table class="table">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>Full Name</th>
-            </tr>
-            </thead>
-            <tbody id="user-list">
-
-            </tbody>
-        </table>
-
-    </div>
-</div>
-<meta name="_token" content="{!! csrf_token() !!}" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script>
-
-    $(document).ready(function(){
-
-        $.ajax({
-
-            url:"http://127.0.0.1:8000/users",
-            success: function (data) {
-                console.log(data);
-
-                var str = "";
-
-                for(var i in data)
-                {
-                    var id = data[i].user_id;
-                    var name = data[i].user_full_name;
-                    str += "<tr><td>" + id + "</td><td>"+ name + "</td></tr>";
-                }
-
-                $("#user-list").html(str);
-            },
-            error: function (data) {
-                console.log('Error:', data);
-            }
-        });
-
-    });
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <!-- page end-->
+        </section>
+    </section>
+    <!--main content end-->
 
 
-</script>
-</body>
-</html>
+
+@endsection
+

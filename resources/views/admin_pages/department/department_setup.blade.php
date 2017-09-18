@@ -13,23 +13,24 @@
                                     <a href="javascript:;" class="fa fa-times"></a>
                                 </span>
                         </header>
+
                         <div class="panel-body">
-                            @if(session('status')=="success")
-                                <div class="alert alert-block alert-success fade in">
-                                    <button data-dismiss="alert" class="close close-sm" type="button">
-                                        <i class="fa fa-times"></i>
-                                    </button>
-                                    <strong>Section Added Successfully</strong>
-                                </div>
-                            @elseif(session('staus')=='decline')
-                                <div class="alert alert-block alert-danger fade in">
-                                    <button data-dismiss="alert" class="close close-sm" type="button">
-                                        <i class="fa fa-times"></i>
-                                    </button>
-                                    <strong>There was a problem</strong>
+
+                            @if (session('success'))
+                                <div class="alert alert-success">
+
+                                    {{ session('success') }}
                                 </div>
                             @endif
-                            <form class="form-horizontal form-label-left" method="post" action="/department/save-department"
+                            @if (session('decline'))
+                                <div class="alert alert-danger">
+
+                                    {{ session('decline') }}
+                                </div>
+                            @endif
+
+                            <form class="form-horizontal form-label-left" method="post"
+                                  action="/department/save-department"
                                   enctype="multipart/form-data">
 
 

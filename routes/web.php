@@ -52,12 +52,15 @@ Route::get('/designation/add-designation', 'DesignationController@designationHom
 Route::post('/designation/save-designation', 'DesignationController@saveDesignation');
 Route::get('/designation/view-designation', 'DesignationController@viewDesignation');
 
+Route::get('/designation/department-wise-designation/{id}', 'DesignationController@departmentWiseDesignation');
+
 //Department End
 
 //Holiday satrt
 Route::get('/holiday/add-holiday', 'HolidayController@holidayHome');
 Route::post('/holiday/save-holiday', 'HolidayController@saveHoliday');
 Route::get('/holiday/view-holiday', 'HolidayController@viewHoliday');
+Route::get('/holiday/edit-holiday/{id}', 'HolidayController@viewHoliday');
 
 //Holiday End
 
@@ -68,9 +71,20 @@ Route::get('/workingday/view_workingday_setup', 'WorkingsetupController@viewWork
 Route::get('/workingday/edit/{working_day_id}', 'WorkingsetupController@editWorkingDay');
 Route::get('/workingday/delete/{working_day_id}', 'WorkingsetupController@deleteWorkingDay');
 
+//Attendance start
 
+Route::get('/attendance/import', 'AttendanceController@importAttendance');
+Route::post('/attendance/import-attendance/save', 'AttendanceController@saveImportedAttendance');
+Route::get('/attendance/view_attendance', 'AttendanceController@viewAttendance');
+
+
+//Attendance End
 
 
 
 Route::get('/admin_pages/dd', 'WorkingsetupController@test');
+
+Route::get('/test', function (){
+return view('test');
+});
 

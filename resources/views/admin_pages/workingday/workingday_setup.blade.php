@@ -238,7 +238,7 @@
                                             </tr>
                                             </tbody>
                                         </table>
-                                        <button type="submit" class="btn btn-lg btn-info" style="width: 40%; margin-top: 70px;margin-left: 0%;">Save Details</button>
+                                        <button type="submit" class="btn btn-info btn-block">Save Details</button>
                                         </form>
                                     </section>
                                 </div>

@@ -20,6 +20,7 @@ class CreateEmployeeDetails extends Migration
             $table->string('emp_image')->nullable();
             $table->string('employee_birthday')->nullable();
             $table->string('gender')->nullable();
+            $table->string('employee_blood_group')->nullable();
             $table->string('employee_phone')->nullable();
             $table->string('employee_local_address')->nullable();
             $table->string('employee_permanent_address')->nullable();
@@ -29,6 +30,7 @@ class CreateEmployeeDetails extends Migration
             $table->string('email')->nullable()->unique();
             $table->string('password')->nullable();
             $table->integer('employee_id')->nullable()->unique();
+            $table->integer('employee_fingerprint_id')->nullable()->unique();
             $table->string('employee_department')->nullable();
             $table->string('employee_designation')->nullable();
             $table->string('employee_date_of_joining')->nullable();

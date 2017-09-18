@@ -15,7 +15,6 @@ class UserController extends Controller
      */
 
 
-
     public function index()
     {
         ;
@@ -34,42 +33,42 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function storeUserDetails(Request $request)
     {
-      $user_full_name=$request->input('user_full_name');
-      $user_designation=$request->input('user_designation');
-      $user_date_of_birth=$request->input('user_date_of_birth');
-      $user_phone_number=$request->input('user_phone_number');
-      $user_email=$request->input('user_email');
-      $user_type="";
-      $user_password=$request->input('user_password');
-      $users_institute_id="";
-      $users_active_status="1";
-      $user_picture="";
+        $user_full_name = $request->input('user_full_name');
+        $user_designation = $request->input('user_designation');
+        $user_date_of_birth = $request->input('user_date_of_birth');
+        $user_phone_number = $request->input('user_phone_number');
+        $user_email = $request->input('user_email');
+        $user_type = "";
+        $user_password = $request->input('user_password');
+        $users_institute_id = "";
+        $users_active_status = "1";
+        $user_picture = "";
 
-      $userDetails = array('user_full_name' => $user_full_name,
-        'user_designation' => $user_designation,
-        'user_date_of_birth' => $user_date_of_birth,
-        'user_phone_number' => $user_phone_number,
-        'user_email' => $user_email,
-        'user_type' => $user_type,
-        'user_password' => $user_password,
-        'users_institute_id' => $users_institute_id,
-        'users_active_status' => $users_active_status,
-        'user_picture' => $user_picture,
-      );
+        $userDetails = array('user_full_name' => $user_full_name,
+            'user_designation' => $user_designation,
+            'user_date_of_birth' => $user_date_of_birth,
+            'user_phone_number' => $user_phone_number,
+            'user_email' => $user_email,
+            'user_type' => $user_type,
+            'user_password' => $user_password,
+            'users_institute_id' => $users_institute_id,
+            'users_active_status' => $users_active_status,
+            'user_picture' => $user_picture,
+        );
 
-      User::insert($userDetails);
+        User::insert($userDetails);
 
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\User  $user
+     * @param  \App\User $user
      * @return \Illuminate\Http\Response
      */
     public function show(User $user)
@@ -80,7 +79,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\User  $user
+     * @param  \App\User $user
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user)
@@ -91,8 +90,8 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\User $user
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, User $user)
@@ -103,7 +102,7 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\User  $user
+     * @param  \App\User $user
      * @return \Illuminate\Http\Response
      */
     public function destroy(User $user)

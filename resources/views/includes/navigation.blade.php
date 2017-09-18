@@ -84,7 +84,8 @@
                     <span>Attendance Setup</span>
                     <span class="dcjq-icon"></span></a>
                 <ul class="sub" style="display: none;">
-                    <li><a href="/workingday/workingday_setup">Add Attendance</a></li>
+                    <li><a href="/attendance/import">Import Attendance</a></li>
+                    <li><a href="/attendance/view_attendance">View Attendance</a></li>
 
                 </ul>
             </li>

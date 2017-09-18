@@ -49,8 +49,8 @@ class HolidayController extends Controller
     public function viewHoliday(){
 
         $result['result']=DB::table('holiday_table')->get();
-        return $result;
-        return view('admin_pages.holiday.add_holiday',$result);
+        //return $result;
+        return view('admin_pages.holiday.view_holiday',$result);
     }
 
 }

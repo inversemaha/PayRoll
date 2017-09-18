@@ -17,10 +17,10 @@ class LoginController extends Controller
             $login_session = $request->session()->get('user_id');
             $user_type = $request->session()->get('user_type');
 
-            if ($login_session != NULL && $user_type=='1') {
+            if ($login_session != NULL && $user_type == '1') {
                 return redirect('/admin-home')->send();
-            }else if($login_session != NULL && $user_type=='2'){
-              return redirect('/user-home')->send();
+            } else if ($login_session != NULL && $user_type == '2') {
+                return redirect('/user-home')->send();
             }
             return $next($request);
         });
@@ -44,19 +44,19 @@ class LoginController extends Controller
             $request->session()->put('user_full_name', $result->user_full_name);
 
             $request->session()->put('user_type', $result->user_type);
-           $request->session()->put('users_active_status', $result->users_active_status);
+            $request->session()->put('users_active_status', $result->users_active_status);
 
 
-            if($result->user_type=='1'){
+            if ($result->user_type == '1') {
                 //Super Admin
                 return redirect('/admin-home')->send();
-            }else if($result->user_type=='2'){
+            } else if ($result->user_type == '2') {
                 return redirect('/user-home')->send();
 
             }
 
         } else {
-            return Redirect('/login')->with('status','decline');
+            return Redirect('/login')->with('status', 'decline');
         }
 
 

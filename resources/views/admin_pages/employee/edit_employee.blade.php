@@ -68,7 +68,7 @@
                                             <div class="fileupload fileupload-new" data-provides="fileupload">
                                                 <div class="fileupload-new thumbnail"
                                                      style="width: 200px; height: 150px;">
-                                                    <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image"
+                                                    <img src="/employe_image/{{ $result->emp_image }}"
                                                          alt="">
                                                 </div>
                                                 <div class="fileupload-preview fileupload-exists thumbnail"
