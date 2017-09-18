@@ -1,6 +1,6 @@
 @extends('layouts.master_layout')
 
-@section('title', 'School Homepage')
+@section('title', 'Payroll Home')
 
 
 @section('content')

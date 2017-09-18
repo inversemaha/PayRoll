@@ -12,7 +12,8 @@ class HolidayTable extends Migration
         Schema::create('holiday_table', function (Blueprint $table) {
             $table->increments('holiday_id');
             $table->string('holiday_date');
-            $table->string('holiday_occasion');
+            $table->string('holiday_occasion')->nullable();
+            $table->string('pay_status'); //1=Paid,0= Unpaid
             $table->timestamp('created_at')->nullable();
         });
     }

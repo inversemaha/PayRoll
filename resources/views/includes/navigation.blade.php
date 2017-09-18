@@ -12,12 +12,24 @@
             <!--Employeemenu start-->
             <li class="sub-menu dcjq-parent-li">
                 <a href="javascript:;" class="dcjq-parent">
-                    <i class="fa fa-sitemap"></i>
+                    <i class="fa fa-user"></i>
                     <span>Employee</span>
                     <span class="dcjq-icon"></span></a>
                 <ul class="sub" style="display: none;">
                     <li><a href="/employee/add-employee">New Employee</a></li>
                     <li><a href="/employee/view-employee">View Employee</a></li>
+                </ul>
+            </li>
+
+            <!--Employeemenu salary start-->
+            <li class="sub-menu dcjq-parent-li">
+                <a href="javascript:;" class="dcjq-parent">
+                    <i class="fa fa-usd"></i>
+                    <span>Employee Salary</span>
+                    <span class="dcjq-icon"></span></a>
+                <ul class="sub" style="display: none;">
+                    <li><a href="/employee/salary/add-salary">Add Employee Salary</a></li>
+                    <li><a href="/employee/salary/view-salary">View Employee Salary</a></li>
                 </ul>
             </li>
 
@@ -73,6 +85,8 @@
                     <li><a href="/holiday/add-holiday">Add Holiday</a></li>
                     <li><a href="/holiday/view-holiday">View Holiday</a></li>
 
+                    <li><a href="/holiday/employee-holiday">Add Employee Holiday</a></li>
+
                 </ul>
             </li>
             <!--Holiday End -->
@@ -80,7 +94,7 @@
             <!--Attendance Start -->
             <li class="sub-menu dcjq-parent-li">
                 <a href="javascript:;" class="dcjq-parent">
-                    <i class="fa fa-sitemap"></i>
+                    <i class="fa fa-caret-right"></i>
                     <span>Attendance Setup</span>
                     <span class="dcjq-icon"></span></a>
                 <ul class="sub" style="display: none;">

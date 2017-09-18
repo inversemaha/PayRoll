@@ -39,6 +39,11 @@ Route::get('/employee/delete/{id}', 'EmployeeController@deleteEmployee');
 Route::post('/employee/save-edited-employee', 'EmployeeController@saveEditedEmployee');
 Route::get('/employee/view/{id}', 'EmployeeController@employeeProfile');
 
+//Salary Control
+
+Route::get('/employee/salary/add-salary', 'EmployeeSalary@index');
+//Salary Control End
+
 //Department satrt
 Route::get('/department/department-setup', 'DepartmentController@setUpDepartment');
 Route::post('/department/save-department', 'DepartmentController@saveDepartment');
@@ -81,10 +86,9 @@ Route::get('/attendance/view_attendance', 'AttendanceController@viewAttendance')
 //Attendance End
 
 
-
 Route::get('/admin_pages/dd', 'WorkingsetupController@test');
 
-Route::get('/test', function (){
-return view('test');
+Route::get('/test', function () {
+    return view('test');
 });
 
