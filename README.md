@@ -7,7 +7,6 @@ it can manage employe management system, like view working day, working hour, ho
 here also can track and calculate damage and loss product.
 
 Installation
-...............
 
 *Clone the repo
 *Copy .env.example to .env
