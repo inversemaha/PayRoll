@@ -18,8 +18,8 @@ here also can track and calculate damage and loss product.
 - Start developing!
 
 ## Technology:
-
-	Laravel 4.2 
+	php
+	Laravel 5.2 
 	MySQL
 	Bootstrap
 	JQuery
